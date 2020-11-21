@@ -5,6 +5,7 @@ import static java.lang.Math.*;
 import javafx.scene.control.RadioButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 public class MainFrame extends JFrame {
 
@@ -36,6 +37,16 @@ public class MainFrame extends JFrame {
         });
         radioButtons.add(button);
         hboxFormulaType.add(button);
+    }
+
+    public MainFrame(){
+        super("Formula calculation...");
+
+        setSize(WIDTH, HEIGHT);
+        Toolkit kit = Toolkit.getDefaultToolkit();
+        setLocation( (kit.getScreenSize().width - WIDTH)/2,
+                (kit.getScreenSize().height - HEIGHT)/2);
+
     }
 
     public static void main(String[] args) {
