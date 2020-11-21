@@ -18,10 +18,16 @@ public class MainFrame extends JFrame {
     private JTextField textFieldResult,
             textFieldX,
             textFieldY,
-            textFieldZ;
-    private ButtonGroup radioButtons = new ButtonGroup();
-    private Box hboxFormulaType = Box.createHorizontalBox();
-    private int formulaId = 1;
+            textFieldZ,
+            textFieldMem1,
+            textFieldMem2,
+            textFieldMem3;
+    private ButtonGroup radioFormulaButtons = new ButtonGroup(),
+            radioMemoryButtons = new ButtonGroup();
+    private Box hboxFormulaType = Box.createHorizontalBox(),
+            hboxMemoryType = Box.createHorizontalBox();
+    private int formulaId = 1,
+            memoryId = 1;
 
     private BufferedImage image = null;
     private JLabel labelImage = new JLabel();
@@ -35,7 +41,7 @@ public class MainFrame extends JFrame {
                 (exp(pow(z, 2)) + sqrt(1/x) + cos(exp(y)));
     }
 
-    private void addRadioButton(String buttonName, final int formulaId){
+    private void addRadioFormulaButton(String buttonName, final int formulaId) {
         JRadioButton button = new JRadioButton(buttonName);
         button.addActionListener(new ActionListener() {
             @Override
@@ -48,14 +54,26 @@ public class MainFrame extends JFrame {
                         image = ImageIO.read(new File("src/bsu/frct/java/lab2/Formula 2.jpg"));
                     }
                     labelImage.setIcon(new ImageIcon(image));
-                }   catch (IOException ex){
+                } catch (IOException ex) {
                     System.out.println("!!!Image not found!!!");
                 }
             }
         });
-        radioButtons.add(button);
+        radioFormulaButtons.add(button);
         hboxFormulaType.add(button);
     }
+        private void addRadioMemoryButton(String buttonName, final int memoryId){
+            JRadioButton button = new JRadioButton(buttonName);
+            button.addActionListener(new ActionListener() {
+                    @Override
+                public void actionPerformed(ActionEvent e) {
+                    MainFrame.this.memoryId = memoryId;
+                }
+            });
+            radioMemoryButtons.add(button);
+            hboxMemoryType.add(button);
+        }
+
 
     public MainFrame(){
         super("Formula calculation...");
@@ -66,10 +84,10 @@ public class MainFrame extends JFrame {
                 (kit.getScreenSize().height - HEIGHT)/2);
 
         hboxFormulaType.add(Box.createHorizontalGlue());
-        addRadioButton("Formula 1", 1);
-        addRadioButton("Formula 2", 2);
+        addRadioFormulaButton("Formula 1", 1);
+        addRadioFormulaButton("Formula 2", 2);
         hboxFormulaType.add(Box.createHorizontalGlue());
-        radioButtons.setSelected(radioButtons.getElements().nextElement().getModel(), true);
+        radioFormulaButtons.setSelected(radioFormulaButtons.getElements().nextElement().getModel(), true);
         hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
 
@@ -155,6 +173,14 @@ public class MainFrame extends JFrame {
         hboxButtons.add(Box.createHorizontalGlue());
         hboxButtons.setBorder(BorderFactory.createLineBorder(Color.BLUE));
 
+        hboxMemoryType.add(Box.createHorizontalGlue());
+        addRadioMemoryButton("Mem1", 1);
+        addRadioMemoryButton("Mem2", 2);
+        addRadioMemoryButton("Mem3", 3);
+        hboxMemoryType.add(Box.createHorizontalGlue());
+        radioMemoryButtons.setSelected(radioMemoryButtons.getElements().nextElement().getModel(), true);
+        hboxMemoryType.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
         Box contentBox = Box.createVerticalBox();
         contentBox.add(Box.createVerticalGlue());
         contentBox.add(hboxFormulaType);
@@ -162,6 +188,7 @@ public class MainFrame extends JFrame {
         contentBox.add(hboxVariables);
         contentBox.add(hboxResult);
         contentBox.add(hboxButtons);
+        contentBox.add(hboxMemoryType);
         contentBox.add(Box.createVerticalGlue());
         contentBox.setBorder(BorderFactory.createLineBorder(Color.PINK));
         getContentPane().add(contentBox, BorderLayout.CENTER);
