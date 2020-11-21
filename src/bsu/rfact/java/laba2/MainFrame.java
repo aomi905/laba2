@@ -29,7 +29,7 @@ public class MainFrame extends JFrame {
     private int formulaId = 1,
             memoryId = 1;
 
-    private BufferedImage image = null;
+    private BufferedImage image;
     private JLabel labelImage = new JLabel();
 
     public Double calculate1(Double x, Double y, Double z){
@@ -88,14 +88,14 @@ public class MainFrame extends JFrame {
         addRadioFormulaButton("Formula 2", 2);
         hboxFormulaType.add(Box.createHorizontalGlue());
         radioFormulaButtons.setSelected(radioFormulaButtons.getElements().nextElement().getModel(), true);
-        hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
 
 
         Box hboxFormulaImage = Box.createHorizontalBox();
         hboxFormulaImage.add(Box.createHorizontalGlue());
         hboxFormulaImage.add(labelImage);
         hboxFormulaImage.add(Box.createHorizontalGlue());
-        hboxFormulaImage.setBorder(BorderFactory.createLineBorder(Color.RED));
+        hboxFormulaImage.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
 
         Box hboxVariables = Box.createHorizontalBox();
         JLabel labelForX = new JLabel("X =");
@@ -131,7 +131,7 @@ public class MainFrame extends JFrame {
         hboxResult.add(Box.createHorizontalStrut(10));
         hboxResult.add(textFieldResult);
         hboxResult.add(Box.createHorizontalGlue());
-        hboxResult.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
+        hboxResult.setBorder(BorderFactory.createLineBorder(Color.RED));
 
         Box hboxButtons = Box.createHorizontalBox();
         JButton buttonCalc = new JButton("Calculate");
@@ -168,10 +168,10 @@ public class MainFrame extends JFrame {
         });
         hboxButtons.add(Box.createHorizontalGlue());
         hboxButtons.add(buttonCalc);
-        hboxButtons.add(Box.createHorizontalStrut(30));
+        hboxButtons.add(Box.createHorizontalStrut(50));
         hboxButtons.add(buttonReset);
         hboxButtons.add(Box.createHorizontalGlue());
-        hboxButtons.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        hboxButtons.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
 
         hboxMemoryType.add(Box.createHorizontalGlue());
         addRadioMemoryButton("Mem1", 1);
@@ -179,7 +179,7 @@ public class MainFrame extends JFrame {
         addRadioMemoryButton("Mem3", 3);
         hboxMemoryType.add(Box.createHorizontalGlue());
         radioMemoryButtons.setSelected(radioMemoryButtons.getElements().nextElement().getModel(), true);
-        hboxMemoryType.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        hboxMemoryType.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
 
         Box hboxMemoryResult = Box.createHorizontalBox();
         JLabel labelForMem1 = new JLabel("Mem1 =");
@@ -204,7 +204,58 @@ public class MainFrame extends JFrame {
         hboxMemoryResult.add(Box.createHorizontalStrut(10));
         hboxMemoryResult.add(textFieldMem3);
         hboxMemoryResult.add(Box.createHorizontalGlue());
-        hboxMemoryResult.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
+        hboxMemoryResult.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        Box hboxMemoryButtons = Box.createHorizontalBox();
+        JButton Mplus = new JButton("M+");
+        Mplus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Double result = Double.parseDouble(textFieldResult.getText()),
+                            mem1 = Double.parseDouble(textFieldMem1.getText()),
+                            mem2 = Double.parseDouble(textFieldMem2.getText()),
+                            mem3 = Double.parseDouble(textFieldMem3.getText());
+                    if (memoryId == 1) {
+                        mem1 += result;
+                        textFieldMem1.setText(mem1.toString());
+                    }
+                    if (memoryId == 2) {
+                        mem2 += result;
+                        textFieldMem2.setText(mem2.toString());
+                    }
+                    if (memoryId == 3) {
+                        mem3 += result;
+                        textFieldMem3.setText(mem3.toString());
+                    }
+                }   catch (NumberFormatException ex){
+                    JOptionPane.showMessageDialog(MainFrame.this,
+                            "Floating point format error", "Wrong number in (Result)",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+        JButton MC = new JButton("MC");
+        MC.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (memoryId == 1){
+                    textFieldMem1.setText("0");
+                }
+                if (memoryId == 2){
+                    textFieldMem2.setText("0");
+                }
+                if (memoryId == 3){
+                    textFieldMem3.setText("0");
+                }
+            }
+        });
+        hboxMemoryButtons.add(Box.createHorizontalGlue());
+        hboxMemoryButtons.add(Mplus);
+        hboxMemoryButtons.add(Box.createHorizontalStrut(50));
+        hboxMemoryButtons.add(MC);
+        hboxMemoryButtons.add(Box.createHorizontalGlue());
+        hboxMemoryButtons.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
 
 
         Box contentBox = Box.createVerticalBox();
@@ -216,8 +267,9 @@ public class MainFrame extends JFrame {
         contentBox.add(hboxButtons);
         contentBox.add(hboxMemoryType);
         contentBox.add(hboxMemoryResult);
+        contentBox.add(hboxMemoryButtons);
         contentBox.add(Box.createVerticalGlue());
-        contentBox.setBorder(BorderFactory.createLineBorder(Color.PINK));
+        contentBox.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
         getContentPane().add(contentBox, BorderLayout.CENTER);
     }
 
