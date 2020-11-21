@@ -2,6 +2,9 @@ package bsu.rfact.java.laba2;
 
 import javax.swing.*;
 import static java.lang.Math.*;
+import javafx.scene.control.RadioButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
 
@@ -21,6 +24,18 @@ public class MainFrame extends JFrame {
     public Double calculate2(Double x, Double y, Double z){
         return pow( cos(PI*pow(x, 3)) + pow(log(1+y), 2) , 1/4) *
                 ( exp(pow(z, 2)) + sqrt(1/x) + cos(exp(y)));
+    }
+
+    private void addRadioButton(String buttonName, final int formulaId){
+        JRadioButton button = new JRadioButton(buttonName);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainFrame.this.formulaId = formulaId;
+            }
+        });
+        radioButtons.add(button);
+        hboxFormulaType.add(button);
     }
 
     public static void main(String[] args) {
