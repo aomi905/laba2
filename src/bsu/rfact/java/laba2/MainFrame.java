@@ -13,7 +13,8 @@ public class MainFrame extends JFrame {
             HEIGHT = 320;
     private JTextField textFieldResult,
             textFieldX,
-            textFieldY;
+            textFieldY,
+            textFieldZ;
     private ButtonGroup radioButtons = new ButtonGroup();
     private Box hboxFormulaType = Box.createHorizontalBox();
     private int formulaId = 1;
@@ -47,6 +48,37 @@ public class MainFrame extends JFrame {
         setLocation( (kit.getScreenSize().width - WIDTH)/2,
                 (kit.getScreenSize().height - HEIGHT)/2);
 
+        hboxFormulaType.add(Box.createHorizontalGlue());
+        addRadioButton("Formula 1", 1);
+        addRadioButton("Formula 2", 2);
+        hboxFormulaType.add(Box.createHorizontalGlue());
+        radioButtons.setSelected(radioButtons.getElements().nextElement().getModel(), true);
+        hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+        Box hboxVariables = Box.createHorizontalBox();
+        JLabel labelForX = new JLabel("X =");
+        textFieldX = new JTextField("0", 10);
+        textFieldX.setMaximumSize(textFieldX.getPreferredSize());
+        JLabel labelForY = new JLabel("y =");
+        textFieldY = new JTextField("0", 10);
+        textFieldY.setMaximumSize(textFieldY.getPreferredSize());
+        JLabel labelForZ = new JLabel("Z =");
+        textFieldZ = new JTextField("0", 10);
+        textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
+        hboxVariables.add(Box.createHorizontalGlue());
+        hboxVariables.add(labelForX);
+        hboxVariables.add(Box.createHorizontalStrut(10));
+        hboxVariables.add(textFieldX);
+        hboxVariables.add(Box.createHorizontalStrut(100));
+        hboxVariables.add(labelForY);
+        hboxVariables.add(Box.createHorizontalStrut(10));
+        hboxVariables.add(textFieldY);
+        hboxVariables.add(Box.createHorizontalStrut(100));
+        hboxVariables.add(labelForZ);
+        hboxVariables.add(Box.createHorizontalStrut(10));
+        hboxVariables.add(textFieldZ);
+        hboxVariables.add(Box.createHorizontalGlue());
+        hboxVariables.setBorder(BorderFactory.createLineBorder(Color.ORANGE));
     }
 
     public static void main(String[] args) {
