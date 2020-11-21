@@ -1,8 +1,0 @@
-package bsu.rfact.java.laba2;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-    }
-}
