@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bca2554a-b263-409b-b22d-404443cddf27" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/bsu/rfact/java/laba2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bsu/rfact/java/laba2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bsu/rfact/java/laba2/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bsu/rfact/java/laba2/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,17 +23,24 @@
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="bsu.rfact.java.laba2.Main" />
+    <configuration name="MainFrame" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="bsu.rfact.java.laba2.MainFrame" />
       <module name="laba2" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainFrame" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -58,5 +66,35 @@
       <updated>1605987593253</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607270524329">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1607270524329" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1607270881916">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1607270881916" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1607270881915">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1607270881915" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1607270881914">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1607270881914" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1607270881916">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1607270881916" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1607084337651">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1607084337651" />
+    <state x="91" y="0" key="new project wizard" timestamp="1607084362643">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1607084362643" />
   </component>
 </project>

@@ -2,7 +2,6 @@ package bsu.rfact.java.laba2;
 
 import javax.swing.*;
 import static java.lang.Math.*;
-import javafx.scene.control.RadioButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
