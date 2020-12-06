@@ -48,9 +48,9 @@ public class MainFrame extends JFrame {
                 MainFrame.this.formulaId = formulaId;
                 try {
                     if (formulaId == 1) {
-                        image = ImageIO.read(new File("src/bsu/frct/java/lab2/Formula 1.jpg"));
+                        image = ImageIO.read(new File("src/bsu/rfact/java/laba2/Formula 1.jpg"));
                     } else {
-                        image = ImageIO.read(new File("src/bsu/frct/java/lab2/Formula 2.jpg"));
+                        image = ImageIO.read(new File("src/bsu/rfact/java/laba2/Formula 2.jpg"));
                     }
                     labelImage.setIcon(new ImageIcon(image));
                 } catch (IOException ex) {
